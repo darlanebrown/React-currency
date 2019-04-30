@@ -1,1 +1,2 @@
-react-graph
+# React Graph
+This graph displays currency rates.
