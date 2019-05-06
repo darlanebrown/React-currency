@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
-import BarChart from './components/BarChart/BarChart';
-import Nav from './components/Nav/Nav';
+import './BarChart.css';
 
-class App extends Component {
-    state = {
-        data: []
-    }
-    
+class BarChart extends Component {
+
     componentDidMount() {
          fetch('https://api.exchangeratesapi.io/latest')
             .then(response => response.json())
@@ -30,20 +25,20 @@ class App extends Component {
     }
     
     render() {
+    return (
+           <div class="barchart">
+             <div onClick={this.showCurrency.bind(this,'EUR')} id="first-currency" class="currency">EUR</div>
+             <div onClick={this.showCurrency.bind(this,'USD')} id="second-currency" class="currency">USD</div>
+             <div onClick={this.showCurrency.bind(this,'AUD')} id="third-currency" class="currency">AUD</div>
+             <div  onClick={this.showCurrency.bind(this,'GBP')}  id="fourth-currency" class="currency">GBP</div>
+             <div  onClick={this.showCurrency.bind(this,'BRL')}  id="fifth-currency" class="currency">BRL R</div>
+           </div>
+         
         
-        return (
-      <body background="http://www.clearviewsys.com/images/Digital-Currency-Rate-Board-Panel.gif">
-             
-         <div class="container">
-           
-           <Nav />
-           <BarChart />
-         </div>
-        </body>
-    
+   
         )
          
     }
 }
 
-export default App;
+export default BarChart;
